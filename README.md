@@ -41,24 +41,24 @@
   - 철학자의 죽음을 알리는 메세지는, 실제 철학자가 죽은지 10ms 이내에 표시되어야 한다.
   - 프로그램은 무조건 어떠한 [data races](https://en.wikipedia.org/wiki/Race_condition)라도 있으면 안된다.
   
-  ## Mandatory
-  - 프로그램명 = philo
-  - 제출 폴더명 = philo/
-  - 제출 파일 = Makefile, *.h, *.c
-  - 프로그램 인자 : ```number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]```
-  - 허용 함수 : ```memset, printf, malloc, free, write, usleep, gettimeofday, pthread_create, pthread_detach, pthread_join, pthread_mutex_init, pthread_mutex_destroy, pthread_mutex_lock, pthread_mutex_unlock```
-  - 각 철학자는 thread 이어야 한다.
-  - 철학자 사이에 포크가 한 개씩 존재한다.
-  - 철학자가 한 명일 경우, 포크는 한 개 존재한다.
-  - 다수의 철학자가 있는 경우, 포크는 철학자의 왼쪽, 오른쪽에 존재한다.
-  - 철학자들이 포크의 중복 사용을 방지하기 위해 mutex를 사용하여 포크 상태를 보호해야 한다.
+## Mandatory
+- 프로그램명 = philo
+- 제출 폴더명 = philo/
+- 제출 파일 = Makefile, *.h, *.c
+- 프로그램 인자 : ```number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]```
+- 허용 함수 : ```memset, printf, malloc, free, write, usleep, gettimeofday, pthread_create, pthread_detach, pthread_join, pthread_mutex_init, pthread_mutex_destroy, pthread_mutex_lock, pthread_mutex_unlock```
+- 각 철학자는 thread 이어야 한다.
+- 철학자 사이에 포크가 한 개씩 존재한다.
+- 철학자가 한 명일 경우, 포크는 한 개 존재한다.
+- 다수의 철학자가 있는 경우, 포크는 철학자의 왼쪽, 오른쪽에 존재한다.
+- 철학자들이 포크의 중복 사용을 방지하기 위해 mutex를 사용하여 포크 상태를 보호해야 한다.
   
-  ## Bonus
-  - 프로그램명 = philo_bonus
-  - 제출 폴더명 = philo_bonus/
-  - 제출 파일 = Makefile, *.h, *.c
-  - 프로그램 인자 : ```number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]```
-  - 허용 함수 : ```memset, printf, malloc, free, write, fork, kill, exit, pthread_create, pthread_detach, pthread_join, usleep, gettimeofday, waitpid, sem_open, sem_close, sem_post, sem_wait, sem_unlink```
-  - 모든 포크는 테이블의 중앙에 놓여져있다.
-  - 포크의 상태는 없지만, 사용 가능한 포크의 개수가 semaphore로 표시된다.
-  - 각 철학자는 process 이어야 하지만, main process는 철학자이면 안된다.
+## Bonus
+- 프로그램명 = philo_bonus
+- 제출 폴더명 = philo_bonus/
+- 제출 파일 = Makefile, *.h, *.c
+- 프로그램 인자 : ```number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]```
+- 허용 함수 : ```memset, printf, malloc, free, write, fork, kill, exit, pthread_create, pthread_detach, pthread_join, usleep, gettimeofday, waitpid, sem_open, sem_close, sem_post, sem_wait, sem_unlink```
+- 모든 포크는 테이블의 중앙에 놓여져있다.
+- 포크의 상태는 없지만, 사용 가능한 포크의 개수가 semaphore로 표시된다.
+- 각 철학자는 process 이어야 하지만, main process는 철학자이면 안된다.
