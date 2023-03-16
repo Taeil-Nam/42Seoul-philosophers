@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/16 17:32:19 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/16 17:33:19 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int argc, char *argv[])
 {
-	argc = 1; // dummy code
 	argv = 0; // dummy code
 	return (0);
 }
