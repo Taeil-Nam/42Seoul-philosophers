@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/03/14 16:31:39 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/21 17:14:41 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ RM				=	rm -f
 INCLUDES		=	includes/
 
 SRCS			=	srcs/philo_main.c				\
+					srcs/ft_atol.c					\
+					srcs/ft_strtol.c				\
+					srcs/ft_strtol_utils.c			\
 					
 OBJS			=	$(SRCS:.c=.o)
 
