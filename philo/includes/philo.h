@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/21 17:59:27 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/22 20:28:47 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ typedef struct s_strtol
 	int				any;
 	int				cutlim;
 }	t_strtol;
+
+typedef struct s_args
+{
+	long	num_of_philo;
+	long	time_to_die;
+	long	time_to_eat;
+	long	time_to_sleep;
+	long	must_eat_count;
+}	t_args;
 
 /* philo_main */
 
