@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/22 20:28:47 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/23 17:28:24 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@
 # include <pthread.h>
 # include <limits.h>
 
+typedef struct s_info
+{
+	int		argc;
+	char	**argv;
+	long	num_of_philo;
+	long	time_to_die;
+	long	time_to_eat;
+	long	time_to_sleep;
+	long	must_eat_count;
+}	t_info;
+
 typedef struct s_strtol
 {
 	const char		*s;
@@ -32,16 +43,8 @@ typedef struct s_strtol
 	int				cutlim;
 }	t_strtol;
 
-typedef struct s_args
-{
-	long	num_of_philo;
-	long	time_to_die;
-	long	time_to_eat;
-	long	time_to_sleep;
-	long	must_eat_count;
-}	t_args;
-
 /* philo_main */
+int			main(int argc, char *argv[]);
 
 /* ft_atol */
 long		ft_atol(const char *str);
