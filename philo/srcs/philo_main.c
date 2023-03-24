@@ -3,53 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   philo_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/23 17:30:28 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/24 19:40:25 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static void	ft_error(char *msg)
-{
-	printf("%s\n", msg);
-	exit(EXIT_FAILURE);
-}
-
-static void	ft_init_info(int argc, char *argv[], t_info *info)
-{
-	info->argc = argc;
-	info->argv = argv;
-	if (argc == 5)
-	{
-		info->num_of_philo = ft_atol(argv[1]);
-		info->time_to_die = ft_atol(argv[2]);
-		info->time_to_eat = ft_atol(argv[3]);
-		info->time_to_sleep = ft_atol(argv[4]);
-		info->must_eat_count = 0;
-	}
-	else if (argc == 6)
-	{
-		info->num_of_philo = ft_atol(argv[1]);
-		info->time_to_die = ft_atol(argv[2]);
-		info->time_to_eat = ft_atol(argv[3]);
-		info->time_to_sleep = ft_atol(argv[4]);
-		info->must_eat_count = ft_atol(argv[5]);
-	}
-	if (info->num_of_philo < 0 || info->time_to_die < 0
-		|| info->time_to_eat < 0 || info->time_to_sleep < 0
-		|| info->must_eat_count < 0)
-		ft_error("negative arg(s) found.");
-}
-
 int	main(int argc, char *argv[])
 {
 	t_info	info;
 
-	if (argc != 5 && argc != 6)
-		return (EXIT_FAILURE);
-	ft_init_info(argc, argv, &info);
-	return (0);
+	//초기화 파트
+	if (!(argc == 5 || argc == 6))
+		return (ft_error("invaild arguments count", EXIT_FAILURE));
+	if (ft_argv_init(argc, argv, &info) == FAILURE)
+		return (ft_error("invaild arguments vector", EXIT_FAILURE));
+	if (ft_philo_init(&info) == FAILURE)
+		return (ft_error("philo_init() returns FAILURE", EXIT_FAILURE));
+	
+	//메인 파트
+	printf("test\n");
+
+
+	//종료 파트
+	return (EXIT_SUCCESS);
 }

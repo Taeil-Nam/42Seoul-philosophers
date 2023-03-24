@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/03/21 17:14:41 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/24 19:38:12 by jeekpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ SRCS			=	srcs/philo_main.c				\
 					srcs/ft_atol.c					\
 					srcs/ft_strtol.c				\
 					srcs/ft_strtol_utils.c			\
+					srcs/ft_error.c					\
+					srcs/ft_argv_init.c				\
+					srcs/ft_philo_init.c
 					
 OBJS			=	$(SRCS:.c=.o)
 
