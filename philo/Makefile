@@ -6,7 +6,7 @@
 #    By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/03/24 19:38:12 by jeekpark         ###   ########.fr        #
+#    Updated: 2023/03/24 19:58:31 by jeekpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,13 @@ RM				=	rm -f
 
 INCLUDES		=	includes/
 
-SRCS			=	srcs/philo_main.c				\
-					srcs/ft_atol.c					\
-					srcs/ft_strtol.c				\
-					srcs/ft_strtol_utils.c			\
-					srcs/ft_error.c					\
-					srcs/ft_argv_init.c				\
-					srcs/ft_philo_init.c
+SRCS			=	srcs/main.c						\
+					srcs/0_utils/ft_atol.c			\
+					srcs/0_utils/ft_strtol.c		\
+					srcs/0_utils/ft_strtol_utils.c	\
+					srcs/0_utils/ft_error.c			\
+					srcs/1_init/ft_argv_init.c		\
+					srcs/1_init/ft_philo_init.c
 					
 OBJS			=	$(SRCS:.c=.o)
 
