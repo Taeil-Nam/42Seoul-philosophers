@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_main.c                                       :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/24 19:36:04 by tnam             ###   ########.fr       */
+/*   Created: 2023/03/24 19:32:05 by tnam              #+#    #+#             */
+/*   Updated: 2023/03/24 19:32:44 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char *argv[])
+void	ft_free_philos(t_philo **philos, long count)
 {
-	t_info			info;
-	static t_philo	**philos;
+	long	i;
 
-	if (argc != 5 && argc != 6)
-		return (EXIT_FAILURE);
-	ft_init_info(argc, argv, &info);
-	ft_init_philo(&info, philos);
-	/* 1. eat */
-	/* 2. sleep */
-	/* 3. think */
-	return (0);
+	i = 0;
+	while (i < count)
+		free(philos[i]);
+	free(philos);
+	exit(EXIT_FAILURE);
 }

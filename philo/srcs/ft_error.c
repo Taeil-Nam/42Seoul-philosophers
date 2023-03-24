@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_main.c                                       :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/24 19:36:04 by tnam             ###   ########.fr       */
+/*   Created: 2023/03/24 19:01:19 by tnam              #+#    #+#             */
+/*   Updated: 2023/03/24 19:01:41 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char *argv[])
+void	ft_error(char *msg)
 {
-	t_info			info;
-	static t_philo	**philos;
-
-	if (argc != 5 && argc != 6)
-		return (EXIT_FAILURE);
-	ft_init_info(argc, argv, &info);
-	ft_init_philo(&info, philos);
-	/* 1. eat */
-	/* 2. sleep */
-	/* 3. think */
-	return (0);
+	printf("%s\n", msg);
+	exit(EXIT_FAILURE);
 }
