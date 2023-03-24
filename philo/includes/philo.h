@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/24 19:38:04 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/03/24 20:21:00 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ typedef struct s_info
 	long	must_eat_count;
 }	t_info;
 
+typedef struct s_philo
+{
+	pthread_t	thread;
+	long		philo_num;
+	long		fork_count;
+}	t_philo;
+
 typedef struct s_strtol
 {
 	const char		*s;
@@ -50,6 +57,12 @@ typedef struct s_strtol
 
 /* philo_main */
 int			main(int argc, char *argv[]);
+
+/* ft_init_info */
+int			ft_argv_init(int argc, char *argv[], t_info *info);
+
+/* ft_init_philo */
+int			ft_philo_init(t_info *info, t_philo **philos);
 
 /* ft_atol */
 long		ft_atol(const char *str);
@@ -65,10 +78,7 @@ int			ft_isdigit(int c);
 /* ft_error */
 int			ft_error(char *msg, int error_code);
 
-/* ft_argv_init */
-int			ft_argv_init(int argc, char *argv[], t_info *info);
-
-/* ft_philo_init.c */
-int			ft_philo_init(t_info *info);
+/* ft_free */
+void		ft_free_philos(t_philo **philos, long count);
 
 #endif

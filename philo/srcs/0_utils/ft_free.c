@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_philo_init.c                                    :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 19:32:58 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/03/24 20:35:39 by tnam             ###   ########.fr       */
+/*   Created: 2023/03/24 19:32:05 by tnam              #+#    #+#             */
+/*   Updated: 2023/03/24 20:23:19 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_philo_init(t_info *info, t_philo **philos)
+void	ft_free_philos(t_philo **philos, long count)
 {
-	long	count;
+	long	i;
 
-	count = 0;
-	while (count < info->num_of_philo)
-	{
-		philos[count] = (t_philo *)malloc(sizeof(t_philo));
-		if (philos[count] == NULL)
-		{
-			ft_free_philos(philos, count);
-			return (FAILURE);
-		}
-		philos[count]->philo_num = count + 1;
-		philos[count]->fork_count = 0;
-		count++;
-	}
-	philos[count] = NULL;
-	return (SUCCESS);
+	i = 0;
+	while (i < count)
+		free(philos[i++]);
+	free(philos);
 }
