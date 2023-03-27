@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/03/24 20:14:23 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/27 22:15:31 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS			=	srcs/main.c						\
 					srcs/0_utils/ft_error.c			\
 					srcs/0_utils/ft_free.c			\
 					srcs/1_init/ft_argv_init.c		\
-					srcs/1_init/ft_philo_init.c
+					srcs/1_init/ft_philo_init.c		\
+					srcs/2_run/ft_execute_logic.c	\
 					
 OBJS			=	$(SRCS:.c=.o)
 

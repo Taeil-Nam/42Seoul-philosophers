@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/24 20:21:00 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/27 22:17:27 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_philo
 {
 	pthread_t	thread;
 	long		philo_num;
-	long		fork_count;
 }	t_philo;
 
 typedef struct s_strtol
@@ -58,10 +57,10 @@ typedef struct s_strtol
 /* philo_main */
 int			main(int argc, char *argv[]);
 
-/* ft_init_info */
+/* ft_argv_init */
 int			ft_argv_init(int argc, char *argv[], t_info *info);
 
-/* ft_init_philo */
+/* ft_philo_init */
 int			ft_philo_init(t_info *info, t_philo **philos);
 
 /* ft_atol */
@@ -74,6 +73,9 @@ long		ft_strtol(const char *nptr, char **endptr, int base);
 int			ft_isspace(int c);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
+
+/* ft_make_thread */
+int			ft_execute_logic(t_info *info, t_philo **philos);
 
 /* ft_error */
 int			ft_error(char *msg, int error_code);
