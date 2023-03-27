@@ -6,7 +6,7 @@
 /*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 00:12:40 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 00:18:56 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(int argc, char *argv[])
 	//메인 파트
 	if (ft_execute_logic(&info, (info.philos)) == FAILURE)
 		return (ft_error("execute_logic() returns FAILURE", EXIT_FAILURE));
-
+	sleep(1);
+	printf("passed time : %ld\n", ft_reset_time_passed(&info));
 	//종료 파트
 	return (EXIT_SUCCESS);
 }
