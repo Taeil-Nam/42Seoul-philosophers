@@ -3,31 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_philo_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:32:58 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/03/27 21:35:41 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/28 00:14:48 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_philo_init(t_info *info, t_philo **philos)
+int	ft_philo_init(t_info *info)
 {
 	long	count;
 
 	count = 0;
+	info->philos = (t_philo **)malloc(sizeof(t_philo *) * (info->num_of_philo + 1));
+	if (info->philos == NULL)
+		return (EXIT_FAILURE);
 	while (count < info->num_of_philo)
 	{
-		philos[count] = (t_philo *)malloc(sizeof(t_philo));
-		if (philos[count] == NULL)
+		info->philos[count] = (t_philo *)malloc(sizeof(t_philo));
+		if (info->philos[count] == NULL)
 		{
-			ft_free_philos(philos, count);
+			ft_free_philos(info->philos, count);
 			return (FAILURE);
 		}
-		philos[count]->philo_num = count + 1;
+		info->philos[count]->philo_num = count + 1;
 		count++;
 	}
-	philos[count] = NULL;
+	info->philos[count] = NULL;
 	return (SUCCESS);
 }

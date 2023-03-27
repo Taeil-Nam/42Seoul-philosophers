@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/03/27 22:15:31 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/28 00:10:06 by jeekpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ SRCS			=	srcs/main.c						\
 					srcs/0_utils/ft_strtol_utils.c	\
 					srcs/0_utils/ft_error.c			\
 					srcs/0_utils/ft_free.c			\
+					srcs/0_utils/ft_reset_time_passed.c	\
 					srcs/1_init/ft_argv_init.c		\
 					srcs/1_init/ft_philo_init.c		\
+					srcs/1_init/ft_time_init.c		\
 					srcs/2_run/ft_execute_logic.c	\
 					
 OBJS			=	$(SRCS:.c=.o)
