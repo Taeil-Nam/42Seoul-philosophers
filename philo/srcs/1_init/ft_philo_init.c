@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_philo_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:32:58 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/03/28 00:14:48 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:58:16 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	ft_philo_init(t_info *info)
 	long	count;
 
 	count = 0;
-	info->philos = (t_philo **)malloc(sizeof(t_philo *) * (info->num_of_philo + 1));
+	info->philos
+		= (t_philo **)malloc(sizeof(t_philo *) * (info->num_of_philo + 1));
 	if (info->philos == NULL)
 		return (EXIT_FAILURE);
 	while (count < info->num_of_philo)
