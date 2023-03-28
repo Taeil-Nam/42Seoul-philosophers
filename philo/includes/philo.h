@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 00:11:57 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:41:43 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@
 
 typedef struct s_info
 {
-	int		argc;
-	char	**argv;
-	struct s_philo **philos;
-	long	num_of_philo;
-	long	time_to_die;
-	long	time_to_eat;
-	long	time_to_sleep;
-	long	must_eat_count;
-	long	time_booted;
-	long	time_passed;
+	int				argc;
+	char			**argv;
+	struct s_philo	**philos;
+	long			num_of_philo;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
+	long			must_eat_count;
+	long			time_booted;
+	long			time_passed;
 }	t_info;
 
 typedef struct s_philo

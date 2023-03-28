@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_execute_logic.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 21:33:08 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 00:15:19 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:47:32 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	*test(void *philo)
 		else
 			 g_num--;
 	}
-	printf("%d\n",  g_num); // 전역 변수  g_num의 값 출력
+	printf("%d\n",  g_num); // 전역 변수 g_num의 값 출력
 	return (SUCCESS);
 }
 
