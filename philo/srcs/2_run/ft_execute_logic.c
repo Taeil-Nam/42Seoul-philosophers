@@ -6,25 +6,28 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 21:33:08 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 11:47:32 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/28 15:24:54 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
 int g_num = 0; /* test용 전역 변수(삭제 필요) */
+pthread_mutex_t mutex;
 
 /* test용 함수(삭제 필요) */
 static void	*test(void *philo)
 {
+	pthread_mutex_lock(&mutex);
 	for (int i = 0; i < 50000; i++)
 	{
-		if (((t_philo *)philo)->philo_num % 2 == 0)
+		if (((t_philo *)philo)->philo_num < 100)
 			 g_num++;
 		else
 			 g_num--;
 	}
-	printf("%d\n",  g_num); // 전역 변수 g_num의 값 출력
+	printf("%d\n", g_num); // 전역 변수 g_num의 값 출력
+	pthread_mutex_unlock(&mutex);
 	return (SUCCESS);
 }
 
@@ -65,9 +68,13 @@ static int	ft_join_thread(t_info *info, t_philo **philos)
 
 int	ft_execute_logic(t_info *info, t_philo **philos)
 {
+	if (pthread_mutex_init(&mutex, NULL) != 0)
+		return (FAILURE);
 	if (ft_create_thread(info, philos) == FAILURE)
 		return (FAILURE);
 	if (ft_join_thread(info, philos) == FAILURE)
+		return (FAILURE);
+	if (pthread_mutex_destroy(&mutex) != 0)
 		return (FAILURE);
 	return (SUCCESS);
 }
