@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 14:50:48 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/28 17:41:43 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,8 @@ int	main(int argc, char *argv[])
 		return (ft_error("gettimeofday() returns -1(error)", EXIT_FAILURE));
 
 	//메인 파트
-	if (ft_execute_logic(&info, (info.philos)) == FAILURE)
+	if (ft_start_logic(&info, (info.philos)) == FAILURE)
 		return (ft_error("execute_logic() returns FAILURE", EXIT_FAILURE));
-
-	printf("elapsed time : %ldms\n",
-		ft_elapsed_time(info.time_elapsed, info.time_to_die, &info));
-	printf("elapsed time : %ldms\n",
-		ft_elapsed_time(info.time_elapsed, info.time_to_die, &info));
 
 	//종료 파트
 	return (EXIT_SUCCESS);
