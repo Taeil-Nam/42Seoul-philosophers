@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 11:41:43 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/28 14:44:11 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_info
 	long			time_to_sleep;
 	long			must_eat_count;
 	long			time_booted;
-	long			time_passed;
+	long			time_elapsed;
 }	t_info;
 
 typedef struct s_philo
@@ -57,39 +57,32 @@ typedef struct s_strtol
 	int				cutlim;
 }	t_strtol;
 
-/* philo_main */
-int			main(int argc, char *argv[]);
-
-/* ft_argv_init */
-int			ft_argv_init(int argc, char *argv[], t_info *info);
-
-/* ft_philo_init */
-int			ft_philo_init(t_info *info);
-
-/* ft_time_init */
-int			ft_time_init(t_info *info);
-
-/* ft_atol */
+/* 0_utils */
+/** ft_atol **/
 long		ft_atol(const char *str);
-
-/* ft_strtol */
+/** ft_strtol **/
 long		ft_strtol(const char *nptr, char **endptr, int base);
-
-/* ft_strtol_utils */
+/** ft_strtol_utils **/
 int			ft_isspace(int c);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
-
-/* ft_make_thread */
-int			ft_execute_logic(t_info *info, t_philo **philos);
-
-/* ft_error */
+/** ft_error **/
 int			ft_error(char *msg, int error_code);
-
-/* ft_free */
+/** ft_free **/
 void		ft_free_philos(t_philo **philos, long count);
+/** ft_elapsed_time **/
+long		ft_elapsed_time(long start_ms, long end_ms, t_info *info);
 
-/* ft_reset_time_passed */
-long		ft_reset_time_passed(t_info *info);
+/* 1_init */
+/** ft_argv_init **/
+int			ft_argv_init(int argc, char *argv[], t_info *info);
+/** ft_philo_init **/
+int			ft_philo_init(t_info *info);
+/** ft_time_init **/
+int			ft_time_init(t_info *info);
+
+/* 2_run */
+/** ft_execute_logic **/
+int			ft_execute_logic(t_info *info, t_philo **philos);
 
 #endif

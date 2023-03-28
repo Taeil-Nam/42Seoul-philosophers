@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 11:50:09 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/28 14:50:48 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ int	main(int argc, char *argv[])
 	//메인 파트
 	if (ft_execute_logic(&info, (info.philos)) == FAILURE)
 		return (ft_error("execute_logic() returns FAILURE", EXIT_FAILURE));
-	usleep(100000);
-	printf("passed time : %ldms\n", ft_reset_time_passed(&info));
+
+	printf("elapsed time : %ldms\n",
+		ft_elapsed_time(info.time_elapsed, info.time_to_die, &info));
+	printf("elapsed time : %ldms\n",
+		ft_elapsed_time(info.time_elapsed, info.time_to_die, &info));
 
 	//종료 파트
 	return (EXIT_SUCCESS);
