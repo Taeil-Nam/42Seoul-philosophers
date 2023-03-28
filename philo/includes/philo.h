@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 15:09:29 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/28 17:12:01 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,21 @@ typedef struct s_info
 
 typedef struct s_philo
 {
-	pthread_t	thread;
-	long		philo_num;
+	pthread_t		thread;
+	struct s_info	*info;
+	long			philo_id;
+	struct s_fork	*left_fork;
+	struct s_fork	*right_fork;
+	int				left_fork_up;
+	int				right_fork_up;
 }	t_philo;
+
+typedef struct s_fork
+{
+	long			fork_id;
+	struct s_info	*info;
+	int				pickable;
+}	t_fork;
 
 typedef struct s_strtol
 {
