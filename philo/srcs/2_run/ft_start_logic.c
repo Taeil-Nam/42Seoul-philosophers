@@ -23,6 +23,7 @@ static int	ft_create_thread(t_info *info, t_philo **philos)
 				ft_eat_sleep_think, philos[philo_count]) != 0)
 		{
 			ft_free_philos(philos, info->num_of_philo);
+			ft_free_forks(info->forks, info->num_of_philo);
 			return (FAILURE);
 		}
 		philo_count++;
@@ -40,6 +41,7 @@ static int	ft_join_thread(t_info *info, t_philo **philos)
 		if (pthread_join(philos[philo_count]->thread, NULL) != 0)
 		{
 			ft_free_philos(philos, info->num_of_philo);
+			ft_free_forks(info->forks, info->num_of_philo);
 			return (FAILURE);
 		}
 		philo_count++;

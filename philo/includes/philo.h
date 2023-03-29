@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/29 11:22:33 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/29 15:28:46 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@
 
 typedef struct s_info
 {
-	int				argc;
-	char			**argv;
-	struct s_philo	**philos;
-	struct s_fork	**forks;
-	long			num_of_philo;
-	long			time_to_die;
-	long			time_to_eat;
-	long			time_to_sleep;
-	long			must_eat_count;
-	long			time_booted;
-	long			time_elapsed;
-	pthread_mutex_t	mutex;
+	int					argc;
+	char				**argv;
+	struct s_philo		**philos;
+	struct s_fork		**forks;
+	long				num_of_philo;
+	long				time_to_die;
+	long				time_to_eat;
+	long				time_to_sleep;
+	long				must_eat_count;
+	long				time_booted;
+	long				time_elapsed;
+	pthread_mutex_t		mutex;
 }	t_info;
 
 typedef struct s_philo
@@ -104,5 +104,7 @@ int			ft_time_init(t_info *info);
 int			ft_start_logic(t_info *info, t_philo **philos);
 /** ft_eat_sleep_think **/
 void		*ft_eat_sleep_think(void *info);
+/** ft_check_dead **/
+void		*ft_check_dead(void *info);
 
 #endif
