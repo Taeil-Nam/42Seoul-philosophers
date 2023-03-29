@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:43:06 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 18:03:25 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/29 11:25:12 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 static int	ft_pick_fork(t_philo *philo)
 {
 	printf("%ldms %ld has taken a fork\n",
-		ft_elapsed_time(philo->info->time_elapsed, 100, philo->info),
-		philo->philo_id);
+		ft_current_time(philo->info), philo->philo_id);
 	return (SUCCESS);
 }
 
@@ -24,9 +23,9 @@ static int	ft_eat(t_philo *philo)
 {
 	ft_pick_fork(philo);
 	if (philo->left_fork_up == TRUE || philo->right_fork_up == TRUE)
-		printf("%ldms %ld is eating\n",
-			ft_elapsed_time(philo->info->time_elapsed, 200, philo->info),
-			philo->philo_id);
+		printf("%ld %ld is eating\n",
+			ft_current_time(philo->info), philo->philo_id);
+	usleep(philo->info->time_to_eat * 1000);
 	return (SUCCESS);
 }
 

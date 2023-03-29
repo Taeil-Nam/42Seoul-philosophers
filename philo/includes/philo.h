@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 17:43:19 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/29 11:22:33 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_info
 	int				argc;
 	char			**argv;
 	struct s_philo	**philos;
+	struct s_fork	**forks;
 	long			num_of_philo;
 	long			time_to_die;
 	long			time_to_eat;
@@ -44,8 +45,8 @@ typedef struct s_info
 typedef struct s_philo
 {
 	pthread_t		thread;
-	struct s_info	*info;
 	long			philo_id;
+	struct s_info	*info;
 	struct s_fork	*left_fork;
 	struct s_fork	*right_fork;
 	int				left_fork_up;
@@ -55,8 +56,8 @@ typedef struct s_philo
 typedef struct s_fork
 {
 	long			fork_id;
-	struct s_info	*info;
 	int				pickable;
+	struct s_info	*info;
 }	t_fork;
 
 typedef struct s_strtol
@@ -83,12 +84,16 @@ int			ft_isdigit(int c);
 int			ft_error(char *msg, int error_code);
 /** ft_free **/
 void		ft_free_philos(t_philo **philos, long count);
+void		ft_free_forks(t_fork **forks, long count);
 /** ft_elapsed_time **/
+long		ft_current_time(t_info *info);
 long		ft_elapsed_time(long start_ms, long end_ms, t_info *info);
 
 /* 1_init */
 /** ft_argv_init **/
 int			ft_argv_init(int argc, char *argv[], t_info *info);
+/** ft_philo_init **/
+int			ft_fork_init(t_info *info);
 /** ft_philo_init **/
 int			ft_philo_init(t_info *info);
 /** ft_time_init **/

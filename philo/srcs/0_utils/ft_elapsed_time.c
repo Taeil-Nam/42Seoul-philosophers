@@ -6,13 +6,13 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:28:55 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/28 14:51:39 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/29 10:41:39 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static long	ft_current_time(t_info *info)
+long	ft_current_time(t_info *info)
 {
 	struct timeval	tv;
 

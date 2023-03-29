@@ -6,11 +6,29 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:32:58 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/03/28 17:45:26 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/29 11:34:59 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	ft_set_philo_vars(t_info *info, long count)
+{
+	info->philos[count]->philo_id = count + 1;
+	info->philos[count]->info = info;
+	if (info->philos[count]->philo_id == 1)
+	{
+		info->philos[count]->left_fork = info->forks[count];
+		info->philos[count]->right_fork = info->forks[info->num_of_philo - 1];
+	}
+	else
+	{
+		info->philos[count]->left_fork = info->forks[count];
+		info->philos[count]->right_fork = info->forks[count - 1];
+	}
+	info->philos[count]->left_fork_up = FALSE;
+	info->philos[count]->right_fork_up = FALSE;
+}
 
 int	ft_philo_init(t_info *info)
 {
@@ -20,7 +38,7 @@ int	ft_philo_init(t_info *info)
 	info->philos
 		= (t_philo **)malloc(sizeof(t_philo *) * (info->num_of_philo + 1));
 	if (info->philos == NULL)
-		return (EXIT_FAILURE);
+		return (FAILURE);
 	while (count < info->num_of_philo)
 	{
 		info->philos[count] = (t_philo *)malloc(sizeof(t_philo));
@@ -29,8 +47,7 @@ int	ft_philo_init(t_info *info)
 			ft_free_philos(info->philos, count);
 			return (FAILURE);
 		}
-		info->philos[count]->philo_id = count + 1;
-		info->philos[count]->info = info;
+		ft_set_philo_vars(info, count);
 		count++;
 	}
 	info->philos[count] = NULL;
