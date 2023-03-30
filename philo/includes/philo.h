@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 00:15:26 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:11:11 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_info
 	long				must_eat_count;
 	long				time_booted;
 	long				time_elapsed;
+	int					die_flag;
 	pthread_mutex_t		mutex;
 }	t_info;
 
@@ -105,7 +106,13 @@ int			ft_time_init(t_info *info);
 int			ft_start_logic(t_info *info, t_philo **philos);
 /** ft_eat_sleep_think **/
 void		*ft_eat_sleep_think(void *info);
-/** ft_check_dead **/
-void		*ft_check_dead(void *info);
+/** ft_eat **/
+int			ft_eat(t_philo *philo);
+/** ft_sleep **/
+int			ft_sleep(t_philo *philo);
+/** ft_think **/
+int			ft_think(t_philo *philo);
+/** ft_die **/
+void		ft_die(t_info *info, t_philo *philo);
 
 #endif

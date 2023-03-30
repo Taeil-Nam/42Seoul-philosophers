@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/03/29 11:19:23 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/30 19:12:00 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,10 @@ SRCS			=	srcs/main.c						\
 					srcs/1_init/ft_time_init.c		\
 					srcs/2_run/ft_start_logic.c		\
 					srcs/2_run/ft_eat_sleep_think.c	\
+					srcs/2_run/ft_eat.c				\
+					srcs/2_run/ft_sleep.c			\
+					srcs/2_run/ft_think.c			\
+					srcs/2_run/ft_die.c				\
 					
 OBJS			=	$(SRCS:.c=.o)
 

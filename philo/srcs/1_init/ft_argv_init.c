@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:31:57 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/03/30 18:08:12 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/30 19:20:02 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_argv_init(int argc, char *argv[], t_info *info)
 {
 	info->argc = argc;
 	info->argv = argv;
+	info->die_flag = FALSE;
 	if (argc == 5)
 	{
 		info->num_of_philo = ft_atol(argv[1]);
