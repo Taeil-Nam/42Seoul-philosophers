@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 19:50:54 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/30 20:42:07 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ static int	ft_eating(long start_time, t_philo *philo)
 int	ft_eat(t_philo *philo)
 {
 	pthread_mutex_lock(&(philo->info->mutex));
-	if (ft_pick_left_fork(philo) != SUCCESS)
+	if (ft_pick_left_fork(philo) == FAILURE)
 		return (FAILURE);
-	if (ft_pick_right_fork(philo) != SUCCESS)
+	if (ft_pick_right_fork(philo) == FAILURE)
 		return (FAILURE);
 	pthread_mutex_unlock(&(philo->info->mutex));
 	printf("%ldms %ld is eating\n",
 		ft_current_time(philo->info), philo->philo_id);
-	if (ft_eating(ft_current_time(philo->info), philo) != SUCCESS)
+	if (ft_eating(ft_current_time(philo->info), philo) == FAILURE)
 		return (FAILURE);
 	philo->last_eat_time = ft_current_time(philo->info);
 	philo->left_fork_up = FALSE;

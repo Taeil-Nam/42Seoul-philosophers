@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:08:14 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 19:51:50 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/30 20:41:02 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_sleep(t_philo *philo)
 {
 	printf("%ldms %ld is sleeping\n",
 		ft_current_time(philo->info), philo->philo_id);
-	if (ft_sleeping(ft_current_time(philo->info), philo) != SUCCESS)
+	if (ft_sleeping(ft_current_time(philo->info), philo) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
 }
