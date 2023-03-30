@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 19:11:11 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/30 19:46:14 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,14 @@ int			ft_error(char *msg, int error_code);
 /** ft_free **/
 void		ft_free_philos(t_philo **philos, long count);
 void		ft_free_forks(t_fork **forks, long count);
-/** ft_elapsed_time **/
+/** ft_current_time **/
 long		ft_current_time(t_info *info);
 long		ft_elapsed_time(long start_ms, long end_ms, t_info *info);
 
 /* 1_init */
 /** ft_argv_init **/
 int			ft_argv_init(int argc, char *argv[], t_info *info);
-/** ft_philo_init **/
+/** ft_fork_init **/
 int			ft_fork_init(t_info *info);
 /** ft_philo_init **/
 int			ft_philo_init(t_info *info);
