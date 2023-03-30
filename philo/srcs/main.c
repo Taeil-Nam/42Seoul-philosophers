@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 18:45:44 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/30 22:48:08 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ int	main(int argc, char *argv[])
 
 	//메인 파트
 	if (ft_start_logic(&info, (info.philos)) == FAILURE)
-		return (ft_error("execute_logic() returns FAILURE", EXIT_FAILURE));
+		return (ft_error("start_logic() returns FAILURE", EXIT_FAILURE));
 
 	//종료 파트
-	while (info.die_flag == FALSE)
-		;
+	ft_finish(&info);
 	return (EXIT_SUCCESS);
 }

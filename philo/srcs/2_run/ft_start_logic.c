@@ -31,14 +31,14 @@ static int	ft_create_thread(t_info *info, t_philo **philos)
 	return (SUCCESS);
 }
 
-static int	ft_detach_thread(t_info *info, t_philo **philos)
+static int	ft_join_thread(t_info *info, t_philo **philos)
 {
 	long	philo_count;
 
 	philo_count = 0;
 	while (philo_count < info->num_of_philo)
 	{
-		if (pthread_detach(philos[philo_count]->thread) != 0)
+		if (pthread_join(philos[philo_count]->thread, NULL) != 0)
 		{
 			ft_free_philos(philos, info->num_of_philo);
 			ft_free_forks(info->forks, info->num_of_philo);
@@ -55,7 +55,7 @@ int	ft_start_logic(t_info *info, t_philo **philos)
 		return (FAILURE);
 	if (ft_create_thread(info, philos) == FAILURE)
 		return (FAILURE);
-	if (ft_detach_thread(info, philos) == FAILURE)
+	if (ft_join_thread(info, philos) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
 }
