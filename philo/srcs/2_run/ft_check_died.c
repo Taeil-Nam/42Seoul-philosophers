@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:48:41 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 23:16:06 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/31 20:23:52 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ int	ft_is_died(t_info *info, t_philo *philo)
 int	ft_is_other_died(t_info *info)
 {
 	if (info->die_flag == TRUE)
+		return (TRUE);
+	return (FALSE);
+}
+
+int	ft_check_died(t_info *info, t_philo *philo)
+{
+	if (ft_is_died(info, philo) == TRUE || ft_is_other_died(info) == TRUE)
 		return (TRUE);
 	return (FALSE);
 }

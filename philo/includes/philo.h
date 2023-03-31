@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 23:16:12 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/31 20:24:07 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int			ft_sleep(t_philo *philo);
 /** ft_think **/
 int			ft_think(t_philo *philo);
 /** ft_check_died **/
+int			ft_check_died(t_info *info, t_philo *philo);
 int			ft_is_died(t_info *info, t_philo *philo);
 int			ft_is_other_died(t_info *info);
 /** ft_finish **/

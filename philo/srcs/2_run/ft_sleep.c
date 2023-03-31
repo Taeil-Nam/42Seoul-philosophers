@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:08:14 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 23:16:45 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/31 20:24:23 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static int	ft_sleeping(long start_time, t_philo *philo)
 	while (ft_current_time(philo->info) - start_time
 		< philo->info->time_to_sleep)
 	{
-		if (ft_is_died(philo->info, philo) == TRUE
-			|| ft_is_other_died(philo->info) == TRUE)
+		if (ft_check_died(philo->info, philo) == TRUE)
 			return (FAILURE);
 	}
 	return (SUCCESS);

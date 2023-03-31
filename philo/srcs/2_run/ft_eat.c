@@ -6,40 +6,29 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/31 11:07:35 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/31 20:36:31 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	ft_pick_left_fork(t_philo *philo)
+static int	ft_pick_fork(t_philo *philo)
 {
-	while (philo->left_fork->pickable == FALSE)
+	if (philo->left_fork->pickable == TRUE
+		&& philo->right_fork->pickable == TRUE)
 	{
-		if (ft_is_died(philo->info, philo) == TRUE
-			|| ft_is_other_died(philo->info) == TRUE)
-			return (FAILURE);
+		philo->left_fork->pickable = FALSE;
+		philo->left_fork_up = TRUE;
+		printf("%ldms %ld has taken a fork\n",
+			ft_current_time(philo->info), philo->philo_id);
+		philo->right_fork->pickable = FALSE;
+		philo->right_fork_up = TRUE;
+		printf("%ldms %ld has taken a fork\n",
+			ft_current_time(philo->info), philo->philo_id);
+		return (SUCCESS);
 	}
-	philo->left_fork_up = TRUE;
-	philo->left_fork->pickable = FALSE;
-	printf("%ldms %ld has taken a fork\n",
-		ft_current_time(philo->info), philo->philo_id);
-	return (SUCCESS);
-}
-
-static int	ft_pick_right_fork(t_philo *philo)
-{
-	while (philo->right_fork->pickable == FALSE)
-	{
-		if (ft_is_died(philo->info, philo) == TRUE
-			|| ft_is_other_died(philo->info) == TRUE)
-			return (FAILURE);
-	}
-	philo->right_fork_up = TRUE;
-	philo->right_fork->pickable = FALSE;
-	printf("%ldms %ld has taken a fork\n",
-		ft_current_time(philo->info), philo->philo_id);
-	return (SUCCESS);
+	else
+		return (FAILURE);
 }
 
 static int	ft_eating(long start_time, t_philo *philo)
@@ -58,14 +47,9 @@ static int	ft_eating(long start_time, t_philo *philo)
 int	ft_eat(t_philo *philo)
 {
 	pthread_mutex_lock(&(philo->info->mutex));
-	if (ft_pick_left_fork(philo) == FAILURE)
+	if (ft_pick_fork(philo) == FAILURE)
 	{
-		pthread_mutex_unlock(&((t_philo *)philo)->info->mutex);
-		return (FAILURE);
-	}
-	if (ft_pick_right_fork(philo) == FAILURE)
-	{
-		pthread_mutex_unlock(&((t_philo *)philo)->info->mutex);
+		pthread_mutex_unlock(&(philo->info->mutex));
 		return (FAILURE);
 	}
 	pthread_mutex_unlock(&(philo->info->mutex));
