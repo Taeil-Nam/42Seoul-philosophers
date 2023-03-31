@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 23:17:10 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/31 11:07:35 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,15 @@ int	ft_eat(t_philo *philo)
 {
 	pthread_mutex_lock(&(philo->info->mutex));
 	if (ft_pick_left_fork(philo) == FAILURE)
+	{
+		pthread_mutex_unlock(&((t_philo *)philo)->info->mutex);
 		return (FAILURE);
+	}
 	if (ft_pick_right_fork(philo) == FAILURE)
+	{
+		pthread_mutex_unlock(&((t_philo *)philo)->info->mutex);
 		return (FAILURE);
+	}
 	pthread_mutex_unlock(&(philo->info->mutex));
 	if (ft_eating(ft_current_time(philo->info), philo) == FAILURE)
 		return (FAILURE);

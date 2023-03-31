@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:43:06 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/30 23:07:28 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/31 11:06:54 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ void	*ft_eat_sleep_think(void *philo)
 		if (ft_think(philo) == FAILURE)
 			break ;
 	}
-	pthread_mutex_unlock(&((t_philo *)philo)->info->mutex);
 	return (SUCCESS);
 }
