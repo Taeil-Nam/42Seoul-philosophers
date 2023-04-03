@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_died.c                                    :+:      :+:    :+:   */
+/*   ft_check_finish_eat.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:48:41 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/03 20:25:01 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/03 20:08:03 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_is_died(t_info *info, t_philo *philo)
+int	ft_check_finish_eat(t_philo *philo)
 {
-	long	die_time;
-
-	if (info->time_to_die < ft_current_time(info) - philo->last_eat_time)
+	if (philo->info->must_eat_count > 0
+		&& philo->info->must_eat_count <= philo->eat_count)
 	{
-		die_time = ft_current_time(info);
-		info->die_flag = TRUE;
-		while (ft_current_time(info) - die_time < 10)
-			;
-		printf("%ldms %ld is died\n", die_time, philo->philo_id);
+		philo->info->finish_eat_flag = TRUE;
 		return (TRUE);
 	}
-	return (FALSE);
-}
-
-int	ft_is_other_died(t_info *info)
-{
-	if (info->die_flag == TRUE)
-		return (TRUE);
-	return (FALSE);
-}
-
-int	ft_check_died(t_info *info, t_philo *philo)
-{
-	if (ft_is_died(info, philo) == TRUE || ft_is_other_died(info) == TRUE)
-		return (TRUE);
 	return (FALSE);
 }

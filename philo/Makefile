@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/03/30 23:14:30 by tnam             ###   ########.fr        #
+#    Updated: 2023/04/03 20:01:28 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,24 +18,25 @@ RM				=	rm -f
 
 INCLUDES		=	includes/
 
-SRCS			=	srcs/main.c						\
-					srcs/0_utils/ft_atol.c			\
-					srcs/0_utils/ft_strtol.c		\
-					srcs/0_utils/ft_strtol_utils.c	\
-					srcs/0_utils/ft_error.c			\
-					srcs/0_utils/ft_free.c			\
-					srcs/0_utils/ft_current_time.c	\
-					srcs/1_init/ft_argv_init.c		\
-					srcs/1_init/ft_fork_init.c		\
-					srcs/1_init/ft_philo_init.c		\
-					srcs/1_init/ft_time_init.c		\
-					srcs/2_run/ft_start_logic.c		\
-					srcs/2_run/ft_eat_sleep_think.c	\
-					srcs/2_run/ft_eat.c				\
-					srcs/2_run/ft_sleep.c			\
-					srcs/2_run/ft_think.c			\
-					srcs/2_run/ft_check_died.c		\
-					srcs/2_run/ft_finish.c			\
+SRCS			=	srcs/main.c							\
+					srcs/0_utils/ft_atol.c				\
+					srcs/0_utils/ft_strtol.c			\
+					srcs/0_utils/ft_strtol_utils.c		\
+					srcs/0_utils/ft_error.c				\
+					srcs/0_utils/ft_free.c				\
+					srcs/0_utils/ft_current_time.c		\
+					srcs/1_init/ft_argv_init.c			\
+					srcs/1_init/ft_fork_init.c			\
+					srcs/1_init/ft_philo_init.c			\
+					srcs/1_init/ft_time_init.c			\
+					srcs/2_run/ft_start_logic.c			\
+					srcs/2_run/ft_eat_sleep_think.c		\
+					srcs/2_run/ft_eat.c					\
+					srcs/2_run/ft_sleep.c				\
+					srcs/2_run/ft_think.c				\
+					srcs/2_run/ft_check_died.c			\
+					srcs/2_run/ft_check_finish_eat.c	\
+					srcs/2_run/ft_finish.c				\
 					
 OBJS			=	$(SRCS:.c=.o)
 

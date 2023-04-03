@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:32:58 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/03/30 18:07:50 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/03 19:54:35 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	ft_set_philo_vars(t_info *info, long count)
 		info->philos[count]->right_fork = info->forks[count - 1];
 	info->philos[count]->left_fork_up = FALSE;
 	info->philos[count]->right_fork_up = FALSE;
+	info->philos[count]->eat_count = 0;
 }
 
 int	ft_philo_init(t_info *info)
