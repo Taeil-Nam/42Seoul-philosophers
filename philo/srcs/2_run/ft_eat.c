@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/03 19:58:40 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 11:54:40 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int	ft_pick_fork(t_philo *philo)
 		philo->left_fork_up = TRUE;
 		printf("%ldms %ld has taken a fork\n",
 			ft_current_time(philo->info), philo->philo_id);
+		if (philo->right_fork->pickable == FALSE)
+			return (FAILURE);
 		philo->right_fork->pickable = FALSE;
 		philo->right_fork_up = TRUE;
 		printf("%ldms %ld has taken a fork\n",

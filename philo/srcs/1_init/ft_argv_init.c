@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:31:57 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/03 20:16:12 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 11:36:16 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_argv_init(int argc, char *argv[], t_info *info)
 		info->must_eat_count = ft_atol(argv[5]);
 	info->die_flag = FALSE;
 	info->finish_eat_flag = FALSE;
-	if (info->num_of_philo <= 1 || info->time_to_die <= 0
+	if (info->num_of_philo <= 0 || info->time_to_die <= 0
 		|| info->time_to_eat <= 0 || info->time_to_sleep <= 0
 		|| info->must_eat_count < 0
 		|| (info->argc == 6 && info->must_eat_count == 0))
