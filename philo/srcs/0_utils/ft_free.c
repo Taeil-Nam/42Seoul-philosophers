@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:32:05 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/29 10:51:12 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 19:54:51 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ void	ft_free_forks(t_fork **forks, long count)
 
 	i = 0;
 	while (i < count)
+	{
+		pthread_mutex_destroy(&(forks[i]->mutex));
 		free(forks[i++]);
+	}
 	free(forks);
 }

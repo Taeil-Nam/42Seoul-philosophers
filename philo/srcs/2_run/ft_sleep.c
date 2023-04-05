@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sleep.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:08:14 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/31 20:24:23 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 19:04:06 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_sleeping(long start_time, t_philo *philo)
 {
-	printf("%ldms %ld is sleeping\n",
+	printf("%ld %ld is sleeping\n",
 		ft_current_time(philo->info), philo->philo_id);
 	while (ft_current_time(philo->info) - start_time
 		< philo->info->time_to_sleep)

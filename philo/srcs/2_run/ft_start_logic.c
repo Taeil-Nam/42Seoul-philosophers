@@ -51,6 +51,7 @@ static int	ft_join_thread(t_info *info, t_philo **philos)
 
 int	ft_start_logic(t_info *info, t_philo **philos)
 {
+	info->first_die_time = -1;
 	if (pthread_mutex_init(&(info->mutex), NULL) != 0)
 		return (FAILURE);
 	if (ft_create_thread(info, philos) == FAILURE)

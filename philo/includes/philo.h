@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/03 19:57:22 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 19:38:28 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_info
 	long				time_elapsed;
 	int					die_flag;
 	int					finish_eat_flag;
+	long				first_die_time;
 	pthread_mutex_t		mutex;
 }	t_info;
 
@@ -62,6 +63,7 @@ typedef struct s_fork
 	long			fork_id;
 	int				pickable;
 	struct s_info	*info;
+	pthread_mutex_t	mutex;
 }	t_fork;
 
 typedef struct s_strtol

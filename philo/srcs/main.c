@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/03 19:52:37 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 19:48:12 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	t_info	info;
-
+	
 	if (!(argc == 5 || argc == 6))
 		return (ft_error("invaild arguments count", EXIT_FAILURE));
 	if (ft_argv_init(argc, argv, &info) == FAILURE)

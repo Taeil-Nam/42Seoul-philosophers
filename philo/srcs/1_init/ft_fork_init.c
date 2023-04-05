@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fork_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:48:52 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/29 11:37:33 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 18:45:58 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	ft_set_fork_vars(t_info *info, long count)
 	info->forks[count]->fork_id = count + 1;
 	info->forks[count]->info = info;
 	info->forks[count]->pickable = TRUE;
+	pthread_mutex_init(&(info->forks[count]->mutex), NULL);
 }
 
 int	ft_fork_init(t_info *info)

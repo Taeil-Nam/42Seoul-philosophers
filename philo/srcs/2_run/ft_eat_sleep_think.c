@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_eat_sleep_think.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:43:06 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/03 20:21:25 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/05 19:55:02 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	*ft_eat_sleep_think(void *philo)
 	((t_philo *)philo)->last_eat_time
 		= ft_current_time(((t_philo *)philo)->info);
 	if (((t_philo *)philo)->philo_id % 2 == 1)
-		usleep(500);
+		usleep(200 * 1000);
+
+
 	while (TRUE)
 	{
+		//printf("ch %ld\n", ((t_philo *)philo)->info->first_die_time);
 		if (((t_philo *)philo)->info->finish_eat_flag == TRUE)
 			break ;
 		if (ft_check_died(((t_philo *)philo)->info, ((t_philo *)philo)) == TRUE)
