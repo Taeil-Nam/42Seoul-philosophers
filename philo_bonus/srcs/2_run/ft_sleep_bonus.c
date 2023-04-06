@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_current_time_bonus.c                            :+:      :+:    :+:   */
+/*   ft_sleep_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 14:28:55 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 16:40:18 by jeekpark         ###   ########.fr       */
+/*   Created: 2023/03/30 19:08:14 by tnam              #+#    #+#             */
+/*   Updated: 2023/04/06 16:41:06 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-long	ft_current_time(t_info *info)
+static int	ft_sleeping(long start_time, t_philo *philo)
 {
-	struct timeval	tv;
+	printf("%ld %ld is sleeping\n",
+		ft_current_time(philo->info), philo->philo_id);
+	while (ft_current_time(philo->info) - start_time
+		< philo->info->time_to_sleep)
+	{
+		if (ft_check_died(philo->info, philo) == TRUE)
+			return (FAILURE);
+	}
+	return (SUCCESS);
+}
 
-	if (gettimeofday(&tv, NULL) == -1)
+int	ft_sleep(t_philo *philo)
+{
+	if (ft_sleeping(ft_current_time(philo->info), philo) == FAILURE)
 		return (FAILURE);
-	return (((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000) - info->time_booted);
+	return (SUCCESS);
 }
