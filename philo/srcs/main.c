@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:15:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/05 19:48:12 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 15:14:42 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char *argv[])
 {
 	t_info	info;
-	
+
 	if (!(argc == 5 || argc == 6))
 		return (ft_error("invaild arguments count", EXIT_FAILURE));
-	if (ft_argv_init(argc, argv, &info) == FAILURE)
+	if (ft_info_init(argc, argv, &info) == FAILURE)
 		return (ft_error("invaild arguments vector", EXIT_FAILURE));
 	if (ft_fork_init(&info) == FAILURE)
 		return (ft_error("fork_init() returns FAILURE", EXIT_FAILURE));

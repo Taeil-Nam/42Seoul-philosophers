@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_died.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:48:41 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/05 19:52:25 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:51:49 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_is_died(t_info *info, t_philo *philo)
 {
 	long	die_time;
 
+	usleep(100);
 	pthread_mutex_lock(&(info->mutex));
 	if (info->die_flag == TRUE)
 	{
@@ -42,6 +43,7 @@ int	ft_is_died(t_info *info, t_philo *philo)
 
 int	ft_is_other_died(t_info *info)
 {
+	usleep(100);
 	pthread_mutex_lock(&(info->mutex));
 	if (info->die_flag == TRUE)
 	{

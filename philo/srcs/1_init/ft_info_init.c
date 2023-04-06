@@ -6,13 +6,13 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:31:57 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/05 11:36:16 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/06 15:13:23 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_argv_init(int argc, char *argv[], t_info *info)
+int	ft_info_init(int argc, char *argv[], t_info *info)
 {
 	info->argc = argc;
 	info->argv = argv;

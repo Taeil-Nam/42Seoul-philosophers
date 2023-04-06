@@ -20,7 +20,7 @@ static int	ft_create_thread(t_info *info, t_philo **philos)
 	while (philo_count < info->num_of_philo)
 	{
 		if (pthread_create(&philos[philo_count]->thread, NULL,
-				ft_eat_sleep_think, philos[philo_count]) != 0)
+				ft_routine, philos[philo_count]) != 0)
 		{
 			ft_free_philos(philos, info->num_of_philo);
 			ft_free_forks(info->forks, info->num_of_philo);

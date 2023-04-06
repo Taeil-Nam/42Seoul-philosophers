@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_eat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/05 19:35:06 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:00:05 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static int	ft_pick_right_fork(t_philo *philo)
 	{
 		philo->right_fork->pickable = FALSE;
 		philo->right_fork_up = TRUE;
-		printf("%ld %ld has taken a fork\n", ft_current_time(philo->info), philo->philo_id);
+		printf("%ld %ld has taken a fork\n",
+			ft_current_time(philo->info), philo->philo_id);
 		pthread_mutex_unlock(&(philo->right_fork->mutex));
 		return (SUCCESS);
 	}
@@ -37,7 +38,8 @@ static int	ft_pick_left_fork(t_philo *philo)
 	{
 		philo->left_fork->pickable = FALSE;
 		philo->left_fork_up = TRUE;
-		printf("%ld %ld has taken a fork\n", ft_current_time(philo->info), philo->philo_id);
+		printf("%ld %ld has taken a fork\n",
+			ft_current_time(philo->info), philo->philo_id);
 		pthread_mutex_unlock(&(philo->left_fork->mutex));
 		return (SUCCESS);
 	}
@@ -48,16 +50,12 @@ static int	ft_pick_left_fork(t_philo *philo)
 	}
 }
 
-static int	ft_put_right_fork(t_philo *philo)
+static int	ft_put_fork(t_philo *philo)
 {
 	pthread_mutex_lock(&(philo->right_fork->mutex));
 	philo->right_fork_up = FALSE;
 	philo->right_fork->pickable = TRUE;
 	pthread_mutex_unlock(&(philo->right_fork->mutex));
-	return (SUCCESS);
-}
-static int	ft_put_left_fork(t_philo *philo)
-{
 	pthread_mutex_lock(&(philo->left_fork->mutex));
 	philo->left_fork_up = FALSE;
 	philo->left_fork->pickable = TRUE;
@@ -96,9 +94,6 @@ int	ft_eat(t_philo *philo)
 	philo->last_eat_time = ft_current_time(philo->info);
 	if (ft_eating(ft_current_time(philo->info), philo) == FAILURE)
 		return (FAILURE);
-	ft_put_right_fork(philo);
-	ft_put_left_fork(philo);
-	if (ft_check_died(philo->info, philo) == TRUE)
-		return (FAILURE);
+	ft_put_fork(philo);
 	return (SUCCESS);
 }

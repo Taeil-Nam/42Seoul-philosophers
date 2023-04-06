@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/05 19:38:28 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/06 15:14:11 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ long		ft_current_time(t_info *info);
 long		ft_elapsed_time(long start_ms, long end_ms, t_info *info);
 
 /* 1_init */
-/** ft_argv_init **/
-int			ft_argv_init(int argc, char *argv[], t_info *info);
+/** ft_info_init **/
+int			ft_info_init(int argc, char *argv[], t_info *info);
 /** ft_fork_init **/
 int			ft_fork_init(t_info *info);
 /** ft_philo_init **/
@@ -108,8 +108,8 @@ int			ft_time_init(t_info *info);
 /* 2_run */
 /** ft_start_logic **/
 int			ft_start_logic(t_info *info, t_philo **philos);
-/** ft_eat_sleep_think **/
-void		*ft_eat_sleep_think(void *info);
+/** ft_routine **/
+void		*ft_routine(void *info);
 /** ft_eat **/
 int			ft_eat(t_philo *philo);
 /** ft_sleep **/
