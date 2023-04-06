@@ -22,11 +22,11 @@ void	*ft_routine(void *philo)
 	{
 		if (ft_eat(philo) == FAILURE)
 			break ;
+		if (ft_check_finish_eat(philo) == TRUE)
+			break ;
 		if (ft_sleep(philo) == FAILURE)
 			break ;
 		if (ft_think(philo) == FAILURE)
-			break ;
-		if (((t_philo *)philo)->info->finish_eat_flag == TRUE)
 			break ;
 	}
 	return (SUCCESS);

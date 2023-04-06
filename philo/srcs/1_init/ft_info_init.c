@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_argv_init.c                                     :+:      :+:    :+:   */
+/*   ft_info_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 19:31:57 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/06 15:13:23 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/06 16:36:23 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,14 @@ int	ft_info_init(int argc, char *argv[], t_info *info)
 		info->must_eat_count = ft_atol(argv[5]);
 	info->die_flag = FALSE;
 	info->finish_eat_flag = FALSE;
-	if (info->num_of_philo <= 0 || info->time_to_die <= 0
+	info->first_die_time = -1;
+	info->eat_enough = (long *)malloc(sizeof(long) * info->num_of_philo);
+	if (info->eat_enough == NULL
+		|| info->num_of_philo <= 0 || info->time_to_die <= 0
 		|| info->time_to_eat <= 0 || info->time_to_sleep <= 0
 		|| info->must_eat_count < 0
 		|| (info->argc == 6 && info->must_eat_count == 0))
 		return (FAILURE);
+	memset(info->eat_enough, 0, info->num_of_philo);
 	return (SUCCESS);
 }

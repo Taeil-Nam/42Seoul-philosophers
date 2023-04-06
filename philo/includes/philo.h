@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 15:14:11 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/06 16:36:16 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ typedef struct s_info
 	int					die_flag;
 	int					finish_eat_flag;
 	long				first_die_time;
-	pthread_mutex_t		mutex;
+	long				*eat_enough;
+	pthread_mutex_t		die_mutex;
+	pthread_mutex_t		finish_eat_mutex;
 }	t_info;
 
 typedef struct s_philo

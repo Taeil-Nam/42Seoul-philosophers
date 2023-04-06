@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:48:41 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/03 20:08:03 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/06 16:56:00 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,20 @@
 
 int	ft_check_finish_eat(t_philo *philo)
 {
-	if (philo->info->must_eat_count > 0
-		&& philo->info->must_eat_count <= philo->eat_count)
+	long	count;
+
+	usleep(100);
+	pthread_mutex_lock(&(philo->info->finish_eat_mutex));
+	count = 0;
+	while (count < philo->info->num_of_philo)
 	{
-		philo->info->finish_eat_flag = TRUE;
-		return (TRUE);
+		if (philo->info->eat_enough[count] == FALSE)
+		{
+			pthread_mutex_unlock(&(philo->info->finish_eat_mutex));
+			return (FALSE);
+		}
+		count++;
 	}
-	return (FALSE);
+	pthread_mutex_unlock(&(philo->info->finish_eat_mutex));
+	return (TRUE);
 }

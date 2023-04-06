@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:48:41 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 14:51:49 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/06 16:19:34 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	ft_is_died(t_info *info, t_philo *philo)
 	long	die_time;
 
 	usleep(100);
-	pthread_mutex_lock(&(info->mutex));
+	pthread_mutex_lock(&(info->die_mutex));
 	if (info->die_flag == TRUE)
 	{
-		pthread_mutex_unlock(&(info->mutex));
+		pthread_mutex_unlock(&(info->die_mutex));
 		return (TRUE);
 	}
 	if (info->time_to_die < ft_current_time(info) - philo->last_eat_time)
@@ -34,23 +34,23 @@ int	ft_is_died(t_info *info, t_philo *philo)
 			printf("%ld %ld died\n", die_time, philo->philo_id);
 			info->first_die_time = die_time;
 		}
-		pthread_mutex_unlock(&(info->mutex));
+		pthread_mutex_unlock(&(info->die_mutex));
 		return (TRUE);
 	}
-	pthread_mutex_unlock(&(info->mutex));
+	pthread_mutex_unlock(&(info->die_mutex));
 	return (FALSE);
 }
 
 int	ft_is_other_died(t_info *info)
 {
 	usleep(100);
-	pthread_mutex_lock(&(info->mutex));
+	pthread_mutex_lock(&(info->die_mutex));
 	if (info->die_flag == TRUE)
 	{
-		pthread_mutex_unlock(&(info->mutex));
+		pthread_mutex_unlock(&(info->die_mutex));
 		return (TRUE);
 	}
-	pthread_mutex_unlock(&(info->mutex));
+	pthread_mutex_unlock(&(info->die_mutex));
 	return (FALSE);
 }
 

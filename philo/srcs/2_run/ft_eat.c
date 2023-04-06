@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 16:00:05 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/06 16:45:26 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static int	ft_eating(long start_time, t_philo *philo)
 			return (FAILURE);
 	}
 	philo->eat_count++;
-	if (ft_check_finish_eat(philo) == TRUE)
-		return (FAILURE);
+	if (philo->eat_count >= philo->info->must_eat_count)
+		philo->info->eat_enough[philo->philo_id - 1] = TRUE;
 	return (SUCCESS);
 }
 
