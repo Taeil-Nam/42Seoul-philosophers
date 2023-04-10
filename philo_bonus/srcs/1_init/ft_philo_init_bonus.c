@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_philo_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:02:33 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/10 18:31:14 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:18:59 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_philo_init(int argc, char *argv[], t_philo *philo)
 	philo->time_to_die = ft_atol(argv[2]);
 	philo->time_to_eat = ft_atol(argv[3]);
 	philo->time_to_sleep = ft_atol(argv[4]);
-	philo->fork_taking = 0;
 	philo->last_eat_time = 0;
 	philo->eat_count = 0;
 	if (argc == 5)
