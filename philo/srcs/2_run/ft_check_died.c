@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_died.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:48:41 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 16:19:34 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/10 14:44:32 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_is_died(t_info *info, t_philo *philo)
 		pthread_mutex_unlock(&(info->die_mutex));
 		return (TRUE);
 	}
-	if (info->time_to_die < ft_current_time(info) - philo->last_eat_time)
+	if (info->time_to_die <= ft_current_time(info) - philo->last_eat_time)
 	{
 		die_time = ft_current_time(info);
 		info->die_flag = TRUE;
