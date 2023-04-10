@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 16:39:54 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 10:21:06 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <sys/time.h>
 # include <pthread.h>
 # include <limits.h>
+# include <semaphore.h>
 
 # define TRUE 1
 # define FALSE 0
@@ -30,8 +31,6 @@ typedef struct s_info
 {
 	int					argc;
 	char				**argv;
-	struct s_philo		**philos;
-	struct s_fork		**forks;
 	long				num_of_philo;
 	long				time_to_die;
 	long				time_to_eat;
@@ -42,29 +41,17 @@ typedef struct s_info
 	int					die_flag;
 	int					finish_eat_flag;
 	long				first_die_time;
-	pthread_mutex_t		mutex;
 }	t_info;
 
 typedef struct s_philo
 {
-	pthread_t		thread;
 	long			philo_id;
 	struct s_info	*info;
-	struct s_fork	*left_fork;
-	struct s_fork	*right_fork;
 	int				left_fork_up;
 	int				right_fork_up;
 	long			last_eat_time;
 	long			eat_count;
 }	t_philo;
-
-typedef struct s_fork
-{
-	long			fork_id;
-	int				pickable;
-	struct s_info	*info;
-	pthread_mutex_t	mutex;
-}	t_fork;
 
 typedef struct s_strtol
 {
