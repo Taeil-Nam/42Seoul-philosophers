@@ -6,62 +6,11 @@
 /*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 16:40:56 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:19:08 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
-
-static int	ft_pick_right_fork(t_philo *philo)
-{
-	pthread_mutex_lock(&(philo->right_fork->mutex));
-	if (philo->right_fork->pickable == TRUE)
-	{
-		philo->right_fork->pickable = FALSE;
-		philo->right_fork_up = TRUE;
-		printf("%ld %ld has taken a fork\n",
-			ft_current_time(philo->info), philo->philo_id);
-		pthread_mutex_unlock(&(philo->right_fork->mutex));
-		return (SUCCESS);
-	}
-	else
-	{
-		pthread_mutex_unlock(&(philo->right_fork->mutex));
-		return (FAILURE);
-	}
-}
-
-static int	ft_pick_left_fork(t_philo *philo)
-{
-	pthread_mutex_lock(&(philo->left_fork->mutex));
-	if (philo->left_fork->pickable == TRUE)
-	{
-		philo->left_fork->pickable = FALSE;
-		philo->left_fork_up = TRUE;
-		printf("%ld %ld has taken a fork\n",
-			ft_current_time(philo->info), philo->philo_id);
-		pthread_mutex_unlock(&(philo->left_fork->mutex));
-		return (SUCCESS);
-	}
-	else
-	{
-		pthread_mutex_unlock(&(philo->left_fork->mutex));
-		return (FAILURE);
-	}
-}
-
-static int	ft_put_fork(t_philo *philo)
-{
-	pthread_mutex_lock(&(philo->right_fork->mutex));
-	philo->right_fork_up = FALSE;
-	philo->right_fork->pickable = TRUE;
-	pthread_mutex_unlock(&(philo->right_fork->mutex));
-	pthread_mutex_lock(&(philo->left_fork->mutex));
-	philo->left_fork_up = FALSE;
-	philo->left_fork->pickable = TRUE;
-	pthread_mutex_unlock(&(philo->left_fork->mutex));
-	return (SUCCESS);
-}
 
 static int	ft_eating(long start_time, t_philo *philo)
 {
@@ -81,19 +30,16 @@ static int	ft_eating(long start_time, t_philo *philo)
 
 int	ft_eat(t_philo *philo)
 {
-	while (ft_pick_right_fork(philo) == FAILURE)
-	{
-		if (ft_check_died(philo->info, philo) == TRUE)
-			return (FAILURE);
-	}
-	while (ft_pick_left_fork(philo) == FAILURE)
-	{
-		if (ft_check_died(philo->info, philo) == TRUE)
-			return (FAILURE);
-	}
+	sem_wait(philo->fork_holder);
+	printf("%ld %ld has taken fork\n",
+		ft_current_time(philo->info), philo->philo_id);
+	sem_wait(philo->fork_holder);
+	printf("%ld %ld has taken fork\n",
+		ft_current_time(philo->info), philo->philo_id);
 	philo->last_eat_time = ft_current_time(philo->info);
 	if (ft_eating(ft_current_time(philo->info), philo) == FAILURE)
 		return (FAILURE);
-	ft_put_fork(philo);
+	sem_post(philo->fork_holder);
+	sem_post(philo->fork_holder);
 	return (SUCCESS);
 }

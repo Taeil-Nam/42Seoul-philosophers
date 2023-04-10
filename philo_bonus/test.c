@@ -12,17 +12,17 @@ int main()
 	int child_id;
 
 	sem_unlink("/semaphore");
-	sem = sem_open("/semaphore", O_CREAT | O_EXCL, 0, 5);
+	sem = sem_open("/semaphore", O_CREAT | O_EXCL, 0, 1);
 	
-	child_id = 0;
+	child_id = 1;
 	while (child_id < NUM_OF_PHILO + 1)
 	{
 		pid[child_id] = fork();
 		if (pid[child_id] == 0)
 		{
 			sem_wait(sem);
-			printf("Child process %d\n", child_id + 1);
-			sleep(5);
+			printf("Child process %d\n", child_id);
+			sleep(1);
 			sem_post(sem);
 			return 0;
 		}
@@ -37,7 +37,7 @@ int main()
 	}
 
 	sem_close(sem);
-	sem_unlink("/semephore");
+	sem_unlink("/semaphore");
 
 	return 0;
 }
