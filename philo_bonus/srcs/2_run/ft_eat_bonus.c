@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/10 21:12:35 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/10 21:17:37 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,10 @@ void	ft_eat(t_philo *philo)
 	sem_wait(philo->fork_holder);
 	printf("%ld %ld has taken a fork\n",
 		ft_current_time(philo), philo->philo_id);
-
 	sem_wait(philo->lock_philo);
 	philo->last_eat_time = ft_current_time(philo);
 	sem_post(philo->lock_philo);
-
 	ft_eating(ft_current_time(philo), philo);
 	sem_post(philo->fork_holder);
 	sem_post(philo->fork_holder);
-
 }

@@ -37,7 +37,6 @@ void	ft_child_routine(t_philo *philo)
 		usleep(philo->time_to_die / 4 * 1000);
 	philo->lock_philo = sem_open(NULL, O_CREAT | O_EXCL, 0, 1);
 	philo->last_eat_time = ft_current_time(philo);
-
 	pthread_create(&monitoring_thread, NULL, ft_monitoring_thread, philo);
 	pthread_detach(monitoring_thread);
 	while (TRUE)

@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:22:04 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/10 21:06:46 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/10 21:17:20 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	main(int argc, char *argv[])
 		return (ft_error("sem_open returns -1(error)", EXIT_FAILURE));
 	if (ft_time_init(&philo) == FAILURE)
 		return (ft_error("gettimeofday() returns -1(error)", EXIT_FAILURE));
-
 	philo.child = (pid_t *)malloc(sizeof(pid_t) * philo.num_of_philo);
 	if (philo.child == NULL)
 		return (ft_error("malloc error", EXIT_FAILURE));
