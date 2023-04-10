@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_routine.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 16:35:31 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/06 16:40:59 by jeekpark         ###   ########.fr       */
+/*   Created: 2023/03/28 17:43:06 by tnam              #+#    #+#             */
+/*   Updated: 2023/04/06 15:02:43 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	ft_finish(t_info *info)
+void	ft_child_routine(t_philo *philo)
 {
-	pthread_mutex_destroy(&(info->mutex));
-	ft_free_forks(info->forks, info->num_of_philo);
-	ft_free_philos(info->philos, info->num_of_philo);
+	philo->last_eat_time = ft_current_time(philo);
+	if (philo->philo_id % 2 == 1)
+		usleep(philo->time_to_die / 4 * 1000);
+	while (TRUE)
+	{
+		ft_eat(philo);
+		ft_sleep(philo);
+		ft_think(philo);
+	}
 }
