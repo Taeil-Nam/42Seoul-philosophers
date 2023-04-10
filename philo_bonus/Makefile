@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+         #
+#    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/04/10 19:11:52 by jeekpark         ###   ########.fr        #
+#    Updated: 2023/04/10 20:41:30 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	philo_bonus
 
 CC				=	cc
-#CFLAG			=	-Wall -Wextra -Werror
+CFLAG			=	-Wall -Wextra -Werror
 RM				=	rm -f
 
 INCLUDES		=	includes/

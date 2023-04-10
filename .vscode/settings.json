@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"philo_bonus.h": "c",
-		"string.h": "c",
-		"stdlib.h": "c",
-		"signal.h": "c",
-		"limits.h": "c"
-	}
-}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/10 19:08:32 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:15:01 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,11 @@ typedef struct s_philo
 	long			must_eat_count;
 	long			time_booted;
 	long			philo_id;
-	int				fork_taking;
 	long			last_eat_time;
 	long			eat_count;
 	sem_t			*fork_holder;
 	sem_t			*lock_philo;
 	pid_t			*child;
-	char			*philo_id_str;
-	long			simul;
 }	t_philo;
 
 typedef struct s_strtol

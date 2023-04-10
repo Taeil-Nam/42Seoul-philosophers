@@ -17,13 +17,13 @@ static void	*ft_monitoring_thread(void *philo_v)
 	t_philo	*philo;
 
 	philo = (t_philo *)philo_v;
-	while (1)
+	while (TRUE)
 	{
 		sem_wait(philo->lock_philo);
 		if (ft_current_time(philo) - philo->last_eat_time >= philo->time_to_die)
 		{
 			free(philo->child);
-			exit (philo->philo_id);
+			exit(philo->philo_id);
 		}
 		sem_post(philo->lock_philo);
 	}
@@ -32,11 +32,12 @@ static void	*ft_monitoring_thread(void *philo_v)
 void	ft_child_routine(t_philo *philo)
 {
 	pthread_t	monitoring_thread;
-	philo->simul = 0;
-	philo->lock_philo = sem_open(NULL, O_CREAT | O_EXCL, 0, 1);
-	philo->last_eat_time = ft_current_time(philo);
+
 	if (philo->philo_id % 2 == 1)
 		usleep(philo->time_to_die / 4 * 1000);
+	philo->lock_philo = sem_open(NULL, O_CREAT | O_EXCL, 0, 1);
+	philo->last_eat_time = ft_current_time(philo);
+
 	pthread_create(&monitoring_thread, NULL, ft_monitoring_thread, philo);
 	pthread_detach(monitoring_thread);
 	while (TRUE)
