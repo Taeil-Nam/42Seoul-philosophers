@@ -6,7 +6,7 @@
 /*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/10 15:28:01 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:08:32 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ typedef struct s_philo
 	long			last_eat_time;
 	long			eat_count;
 	sem_t			*fork_holder;
-	sem_t			*end_alert;
+	sem_t			*lock_philo;
+	pid_t			*child;
+	char			*philo_id_str;
+	long			simul;
 }	t_philo;
 
 typedef struct s_strtol
@@ -70,32 +73,25 @@ int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 /** ft_error **/
 int			ft_error(char *msg, int error_code);
-/** ft_free **/
-void		ft_free_philos(t_philo **philos, long count);
-void		ft_free_forks(t_fork **forks, long count);
 /** ft_current_time **/
-long		ft_current_time(t_info *info);
-long		ft_elapsed_time(long start_ms, long end_ms, t_info *info);
+long		ft_current_time(t_philo *philo);
 
 /* 1_init */
-/** ft_info_init **/
+/** ft_philo_init **/
 int			ft_philo_init(int argc, char *argv[], t_philo *philo);
 /** ft_sem_init **/
 int			ft_sem_init(t_philo *philo);
 /** ft_time_init **/
-int			ft_time_init(t_info *info);
+int			ft_time_init(t_philo *philo);
 
 /* 2_run */
-/** ft_start_logic **/
-int			ft_start_logic(t_info *info, t_philo **philos);
-/** ft_routine **/
-void		*ft_routine(void *info);
+/** ft_child_routine **/
+void		ft_child_routine(t_philo *philo);
 /** ft_eat **/
 void		ft_eat(t_philo *philo);
 /** ft_sleep **/
 void		ft_sleep(t_philo *philo);
 /** ft_think **/
 void		ft_think(t_philo *philo);
-
 
 #endif

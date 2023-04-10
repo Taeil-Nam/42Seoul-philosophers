@@ -5,5 +5,8 @@
 #include <signal.h>
 int main()
 {
-	kill(91550, SIGINT);
+	char *a;
+	a = "hello";
+	a[2] = 'w';
+	printf("%s\n", a);
 }

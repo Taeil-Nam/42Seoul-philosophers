@@ -6,7 +6,7 @@
 /*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:22:04 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/10 15:12:16 by jeekpark         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:04:11 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	main(int argc, char *argv[])
 		return (ft_error("gettimeofday() returns -1(error)", EXIT_FAILURE));
 
 	child = (pid_t *)malloc(sizeof(pid_t) * philo.num_of_philo);
-	//if (child == NULL)
-	//	return (ft_error("malloc error", EXIT_FAILURE));
-
+	if (child == NULL)
+		return (ft_error("malloc error", EXIT_FAILURE));
+	philo.child = child;
 	/* 자식 프로세스 생성 */
 	index = 0;
 	while (index < philo.num_of_philo)
@@ -44,17 +44,26 @@ int	main(int argc, char *argv[])
 
 	/* 생성된 자식 프로세스들 wait */
 	index = 0;
+	int index2 = 0;
 	while (index < philo.num_of_philo)
 	{
 		waitpid(-1, &child_return, 0);
-		if (child_return == STARVED)
+		//printf("return = %d\n", child_return / 256);
+		if (child_return / 256)
 		{
-			while (index < philo.num_of_philo)
-				kill(child[index++], SIGINT);
+			while (index2 < philo.num_of_philo)
+			{
+				//printf("kill\n");
+				kill(child[index2], SIGINT);
+				index2++;
+
+			}
 			free(child);
+			printf("%ld %d died\n", ft_current_time(&philo), child_return / 256);
 			return (EXIT_SUCCESS);
 		}
 		index++;
 	}
+	free(child);
 	return (EXIT_SUCCESS);
 }

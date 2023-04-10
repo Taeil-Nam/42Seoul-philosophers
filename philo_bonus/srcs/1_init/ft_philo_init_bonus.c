@@ -5,48 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 19:32:58 by jeekpark          #+#    #+#             */
-/*   Updated: 2023/04/06 16:40:43 by jeekpark         ###   ########.fr       */
+/*   Created: 2023/04/10 14:02:33 by jeekpark          #+#    #+#             */
+/*   Updated: 2023/04/10 18:31:14 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-static void	ft_set_philo_vars(t_info *info, long count)
+int	ft_philo_init(int argc, char *argv[], t_philo *philo)
 {
-	info->philos[count]->philo_id = count + 1;
-	info->philos[count]->info = info;
-	info->philos[count]->left_fork = info->forks[count];
-	if (info->philos[count]->philo_id == 1)
-		info->philos[count]->right_fork = info->forks[info->num_of_philo - 1];
-	else
-		info->philos[count]->right_fork = info->forks[count - 1];
-	info->philos[count]->left_fork_up = FALSE;
-	info->philos[count]->right_fork_up = FALSE;
-	info->philos[count]->eat_count = 0;
-}
-
-int	ft_philo_init(t_info *info)
-{
-	long	count;
-
-	count = 0;
-	info->philos
-		= (t_philo **)malloc(sizeof(t_philo *) * (info->num_of_philo + 1));
-	if (info->philos == NULL)
+	philo->argc = argc;
+	philo->argv = argv;
+	philo->num_of_philo = ft_atol(argv[1]);
+	philo->time_to_die = ft_atol(argv[2]);
+	philo->time_to_eat = ft_atol(argv[3]);
+	philo->time_to_sleep = ft_atol(argv[4]);
+	philo->fork_taking = 0;
+	philo->last_eat_time = 0;
+	philo->eat_count = 0;
+	if (argc == 5)
+		philo->must_eat_count = 0;
+	else if (argc == 6)
+		philo->must_eat_count = ft_atol(argv[5]);
+	if (philo->num_of_philo <= 0 || philo->time_to_die <= 0
+		|| philo->time_to_eat <= 0 || philo->time_to_sleep <= 0
+		|| philo->must_eat_count < 0
+		|| (philo->argc == 6 && philo->must_eat_count == 0))
 		return (FAILURE);
-	while (count < info->num_of_philo)
-	{
-		info->philos[count] = (t_philo *)malloc(sizeof(t_philo));
-		if (info->philos[count] == NULL)
-		{
-			ft_free_philos(info->philos, count);
-			ft_free_forks(info->forks, info->num_of_philo);
-			return (FAILURE);
-		}
-		ft_set_philo_vars(info, count);
-		count++;
-	}
-	info->philos[count] = NULL;
 	return (SUCCESS);
 }
