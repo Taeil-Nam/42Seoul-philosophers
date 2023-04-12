@@ -12,35 +12,12 @@
 
 #include "philo_bonus.h"
 
-static void	*ft_monitoring_thread(void *philo_v)
-{
-	t_philo	*philo;
-
-	philo = (t_philo *)philo_v;
-	while (TRUE)
-	{
-		if (ft_current_time(philo) - philo->last_eat_time >= philo->time_to_die)
-		{
-			exit(philo->philo_id);
-		}
-		else if (philo->eat_count >= philo->must_eat_count
-			&& philo->must_eat_count != 0)
-		{
-			exit(FINISH_EAT);
-		}
-	}
-}
-
 void	ft_child_routine(t_philo *philo)
 {
-	pthread_t	monitoring_thread;
-
 	free(philo->child);
 	philo->last_eat_time = ft_current_time(philo);
 	if (philo->philo_id % 2 == 1)
 		usleep(philo->time_to_die / 4 * 1000);
-	pthread_create(&monitoring_thread, NULL, ft_monitoring_thread, philo);
-	pthread_detach(monitoring_thread);
 	while (TRUE)
 	{
 		ft_eat(philo);

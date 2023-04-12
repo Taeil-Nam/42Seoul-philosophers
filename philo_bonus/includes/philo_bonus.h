@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/11 20:34:23 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/12 14:26:40 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,8 @@ void		ft_eat(t_philo *philo);
 void		ft_sleep(t_philo *philo);
 /** ft_think **/
 void		ft_think(t_philo *philo);
+/** ft_check_die **/
+void		ft_check_die(t_philo *philo);
+
 
 #endif

@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/04/10 20:41:30 by tnam             ###   ########.fr        #
+#    Updated: 2023/04/12 14:26:58 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS			=	srcs/main_bonus.c						\
 					srcs/2_run/ft_eat_bonus.c				\
 					srcs/2_run/ft_sleep_bonus.c				\
 					srcs/2_run/ft_think_bonus.c				\
+					srcs/2_run/ft_check_die_bonus.c				\
 					
 OBJS			=	$(SRCS:.c=.o)
 
