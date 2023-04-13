@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 16:15:14 by tnam              #+#    #+#              #
-#    Updated: 2023/04/10 20:41:30 by tnam             ###   ########.fr        #
+#    Updated: 2023/04/13 14:12:32 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS			=	srcs/main_bonus.c						\
 					srcs/0_utils/ft_strtol_utils_bonus.c	\
 					srcs/0_utils/ft_error_bonus.c			\
 					srcs/0_utils/ft_current_time_bonus.c	\
+					srcs/0_utils/ft_itoa_bonus.c			\
 					srcs/1_init/ft_philo_init_bonus.c		\
 					srcs/1_init/ft_time_init_bonus.c		\
 					srcs/1_init/ft_sem_init_bonus.c			\
