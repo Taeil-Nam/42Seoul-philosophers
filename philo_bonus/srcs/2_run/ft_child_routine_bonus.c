@@ -19,7 +19,7 @@ static void	*ft_monitoring_thread(void *philo_v)
 	philo = (t_philo *)philo_v;
 	while (TRUE)
 	{
-		usleep(100);
+		usleep(300);
 		sem_wait(philo->lock_philo);
 		if (ft_current_time(philo) - philo->last_eat_time >= philo->time_to_die)
 		{

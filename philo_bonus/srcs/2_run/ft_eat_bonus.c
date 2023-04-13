@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/13 14:41:08 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/13 19:00:20 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_eating(long start_time, t_philo *philo)
 {
 	printf("%ld %ld is eating\n", ft_current_time(philo), philo->philo_id);
 	while (ft_current_time(philo) - start_time < philo->time_to_eat)
-		usleep(100);
+		usleep(300);
 	philo->eat_count++;
 }
 
