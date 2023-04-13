@@ -43,7 +43,7 @@ void	ft_child_routine(t_philo *philo)
 	pthread_t	monitoring_thread;
 
 	free(philo->child);
-	philo->lock_philo_id = ft_itoa(philo->philo_id);
+	philo->lock_philo_id = ft_ltoa(philo->philo_id);
 	sem_unlink(philo->lock_philo_id);
 	philo->lock_philo = sem_open(philo->lock_philo_id, O_CREAT | O_EXCL, 0, 1);
 	if (philo->lock_philo == SEM_FAILED)

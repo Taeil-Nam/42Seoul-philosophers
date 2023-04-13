@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/13 14:13:15 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/13 16:04:15 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int			ft_error(char *msg, int error_code);
 /** ft_current_time **/
 long		ft_current_time(t_philo *philo);
 /** ft_itoa **/
-char		*ft_itoa(int n);
+char		*ft_ltoa(long n);
 
 /* 1_init */
 /** ft_philo_init **/
