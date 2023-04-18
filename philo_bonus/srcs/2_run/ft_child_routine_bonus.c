@@ -49,7 +49,7 @@ void	ft_child_routine(t_philo *philo)
 	if (philo->lock_philo == SEM_FAILED)
 	{
 		printf("philo%ld: sem_open() failed.\n", philo->philo_id);
-		exit(0);
+		exit(philo->philo_id);
 	}
 	philo->last_eat_time = ft_current_time(philo);
 	if (philo->philo_id % 2 == 1)
