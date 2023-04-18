@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 16:36:16 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/18 11:49:48 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_info
 	long				time_to_sleep;
 	long				must_eat_count;
 	long				time_booted;
-	long				time_elapsed;
 	int					die_flag;
 	int					finish_eat_flag;
 	long				first_die_time;
