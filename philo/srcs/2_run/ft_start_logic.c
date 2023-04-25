@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:12:20 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/20 11:12:21 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/25 11:02:30 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static int	ft_create_thread(t_info *info, t_philo **philos)
 		{
 			ft_free_philos(philos, info->num_of_philo);
 			ft_free_forks(info->forks, info->num_of_philo);
+			free(info->eat_enough);
 			return (FAILURE);
 		}
 		philo_count++;
@@ -42,6 +43,7 @@ static int	ft_join_thread(t_info *info, t_philo **philos)
 		{
 			ft_free_philos(philos, info->num_of_philo);
 			ft_free_forks(info->forks, info->num_of_philo);
+			free(info->eat_enough);
 			return (FAILURE);
 		}
 		philo_count++;

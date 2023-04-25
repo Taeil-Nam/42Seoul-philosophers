@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:11:46 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/20 11:11:47 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/25 11:00:34 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_philo_init(t_info *info)
 		{
 			ft_free_philos(info->philos, count);
 			ft_free_forks(info->forks, info->num_of_philo);
+			free(info->eat_enough);
 			return (FAILURE);
 		}
 		ft_set_philo_vars(info, count);

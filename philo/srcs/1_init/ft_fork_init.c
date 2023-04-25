@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:11:29 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/20 11:11:31 by tnam             ###   ########.fr       */
+/*   Updated: 2023/04/25 11:00:21 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_fork_init(t_info *info)
 		if (info->forks[count] == NULL)
 		{
 			ft_free_forks(info->forks, count);
+			free(info->eat_enough);
 			return (FAILURE);
 		}
 		ft_set_fork_vars(info, count);
