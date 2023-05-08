@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:05:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/06 21:23:23 by tnam             ###   ########.fr       */
+/*   Updated: 2023/05/08 20:26:49 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static int	ft_pick_right_fork(t_philo *philo)
 	{
 		philo->right_fork->pickable = FALSE;
 		philo->right_fork_up = TRUE;
-		printf("%ld %ld has taken a fork\n",
-			ft_current_time(philo->info), philo->philo_id);
+		ft_print(philo->info, philo->philo_id, "has taken a fork\n");
 		pthread_mutex_unlock(&(philo->right_fork->mutex));
 		return (SUCCESS);
 	}
@@ -38,8 +37,7 @@ static int	ft_pick_left_fork(t_philo *philo)
 	{
 		philo->left_fork->pickable = FALSE;
 		philo->left_fork_up = TRUE;
-		printf("%ld %ld has taken a fork\n",
-			ft_current_time(philo->info), philo->philo_id);
+		ft_print(philo->info, philo->philo_id, "has taken a fork\n");
 		pthread_mutex_unlock(&(philo->left_fork->mutex));
 		return (SUCCESS);
 	}
@@ -65,8 +63,7 @@ static int	ft_put_fork(t_philo *philo)
 
 static int	ft_eating(long start_time, t_philo *philo)
 {
-	printf("%ld %ld is eating\n",
-		ft_current_time(philo->info), philo->philo_id);
+	ft_print(philo->info, philo->philo_id, "is eating\n");
 	while (ft_current_time(philo->info) - start_time
 		< philo->info->time_to_eat)
 	{

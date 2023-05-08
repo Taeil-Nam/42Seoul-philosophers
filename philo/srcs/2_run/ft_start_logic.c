@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:12:20 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/25 11:02:30 by tnam             ###   ########.fr       */
+/*   Updated: 2023/05/08 20:22:03 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	ft_start_logic(t_info *info, t_philo **philos)
 	if (pthread_mutex_init(&(info->die_mutex), NULL) != 0)
 		return (FAILURE);
 	if (pthread_mutex_init(&(info->finish_eat_mutex), NULL) != 0)
+		return (FAILURE);
+	if (pthread_mutex_init(&(info->print_mutex), NULL) != 0)
 		return (FAILURE);
 	if (ft_create_thread(info, philos) == FAILURE)
 		return (FAILURE);

@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/20 11:10:38 by tnam             ###   ########.fr       */
+/*   Updated: 2023/05/08 20:25:45 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_info
 	long				*eat_enough;
 	pthread_mutex_t		die_mutex;
 	pthread_mutex_t		finish_eat_mutex;
+	pthread_mutex_t		print_mutex;
 }	t_info;
 
 typedef struct s_philo
@@ -95,6 +96,8 @@ void		ft_free_forks(t_fork **forks, long count);
 /** ft_current_time **/
 long		ft_current_time(t_info *info);
 long		ft_elapsed_time(long start_ms, long end_ms, t_info *info);
+/** ft_print **/
+void		ft_print(t_info *info, long id, char *msg);
 
 /* 1_init */
 /** ft_info_init **/
