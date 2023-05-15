@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:16:11 by tnam              #+#    #+#             */
-/*   Updated: 2023/04/13 16:04:15 by tnam             ###   ########.fr       */
+/*   Updated: 2023/05/15 15:08:00 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_philo
 	long			eat_count;
 	sem_t			*fork_holder;
 	sem_t			*lock_philo;
+	sem_t			*print;
 	char			*lock_philo_id;
 	pid_t			*child;
 }	t_philo;
@@ -75,6 +76,8 @@ int			ft_error(char *msg, int error_code);
 long		ft_current_time(t_philo *philo);
 /** ft_itoa **/
 char		*ft_ltoa(long n);
+/** ft_print **/
+void		ft_print(t_philo *philo, long id, char *msg);
 
 /* 1_init */
 /** ft_philo_init **/
