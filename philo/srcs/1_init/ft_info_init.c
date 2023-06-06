@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_info_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jeekpark <jeekpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:11:37 by tnam              #+#    #+#             */
-/*   Updated: 2023/05/08 20:23:55 by tnam             ###   ########.fr       */
+/*   Updated: 2023/06/06 12:32:14 by jeekpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_info_init(int argc, char *argv[], t_info *info)
 		|| (info->argc == 6 && info->must_eat_count == 0))
 		return (FAILURE);
 	info->eat_enough = (long *)malloc(sizeof(long) * info->num_of_philo);
+	if (info->eat_enough == NULL)
+		return (FAILURE);
 	memset(info->eat_enough, 0, info->num_of_philo);
 	return (SUCCESS);
 }
